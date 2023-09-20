@@ -1,2 +1,2 @@
 # todo-goapi
-Simple todo Go REST API
+Simple RESTful Todo Go API

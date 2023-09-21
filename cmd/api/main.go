@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	const ip = "localhost"
+	const port = "8000"
 
 	log.SetReportCaller(true)
 	var r *chi.Mux = chi.NewRouter()
@@ -25,9 +27,11 @@ func main() {
 /_/  \____/_____/\____/   \____/\____/  /_/  |_/_/   /___/   
                                                              `)
 
+	fmt.Println("Listening on port " + port)
+	//err := http.ListenAndServe(ip+":"+port, r)
 	err := http.ListenAndServe("localhost:8000", r)
 	if err != nil {
 		log.Error(err)
+		return
 	}
-
 }

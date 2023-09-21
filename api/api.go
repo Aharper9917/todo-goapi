@@ -2,60 +2,41 @@ package api
 
 import (
 	"encoding/json"
+	"github.com/Aharper9917/todo-goapi/internal/tools"
 	"net/http"
 )
 
-// TodoTypes
-type Todo struct {
-	id          string
-	title       string
-	description string
-}
-
 type TodoParams struct {
-	id string
+	Id string
 }
-
 type TodoResponse struct {
-	code int
-	data Todo
+	Code int
+	Data tools.TodoDetails
 }
-
 type TodosResponse struct {
-	code int
-	data []Todo
-}
-
-// UserTypes
-type User struct {
-	id        string
-	firstName string
-	lastName  string
-	username  string
+	Dode int
+	Data []tools.TodoDetails
 }
 
 type UserParams struct {
-	id string
+	Id string
 }
-
 type UserResponse struct {
-	code int
-	data User
+	Code int
+	Data tools.UserDetails
 }
-
 type UsersResponse struct {
-	code int
-	data []User
+	Code int
+	Data []tools.UserDetails
 }
 
-// Error Response
-type Error struct {
+type ErrorResponse struct {
 	code    int
 	message string
 }
 
 func writeError(w http.ResponseWriter, message string, code int) {
-	resp := Error{
+	resp := ErrorResponse{
 		code:    code,
 		message: message,
 	}
